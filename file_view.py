@@ -7,6 +7,8 @@ import curses.textpad
 from datetime import date
 import getpass
 from file_nav import fileNavigation
+from cursesmenu import *
+from cursesmenu.items import *
 
 
 
@@ -34,7 +36,7 @@ class ascii_art_view:
 
 class file_viewer:
     def __init__(self):
-        self.file_list = fileNavigation().get_files()
+        self.file_list = fileNavigation().find_txt_files()
         pass
 
     def make_title(self,stdscr,width,height):
@@ -48,6 +50,14 @@ class file_viewer:
 
         title_view.refresh()
 
+   
+    def print_files(self, field):
+        row = 0
+        for name in self.file_list:
+            field.addstr(row,20,name)
+            row += 1
+
+
     def main(self,stdscr):
         try:
             height, width = stdscr.getmaxyx()
@@ -58,11 +68,11 @@ class file_viewer:
             field.border(0)
             field.bkgd(curses.color_pair(4))
             field.refresh()
-            row = 1
-            for name in self.file_list:
-                field.addstr(row,20,name.upper())
-                row += 2
+            self.print_files(field) #Prints the files to the selection menu
             field.refresh()
-        finally:
+            field.getch()
+        finally:    
             curses.endwin()
+            for name in self.file_list:
+                print name
             print "We out "
