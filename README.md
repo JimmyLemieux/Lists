@@ -18,6 +18,6 @@ Soon To Come available options for more customized user experience
 
 TODO:
   1. split classes into their own files √
-  2. Create menu page for choosing files (Somewhat)
-  3. Password protect (Tomorrow)
-  4. Add more to the list (Tomorrow)
+  2. Create menu page for choosing files (I created a scrolling terminal menu that can select items, I just need to learn how to open file in screen I created prior)
+  3. Password protect (Tomorrow) -> Later tonight
+  4. Add more to the list (Tomorrow) -> Haven't came up with anything yet..
