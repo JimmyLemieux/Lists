@@ -178,8 +178,9 @@ if(args.view):
 
 #This is the creation of a file
 #When the user has a certain flag enabled, this will be called
-
-# if(args.new):
-#     curses.wrapper(create_file(args.new).main)
+ 
+#There is a bug here when trying to load the new screen with custom -n/--new flag
+if(args.new):
+    curses.wrapper(create_file(args.new).main)
 
 
